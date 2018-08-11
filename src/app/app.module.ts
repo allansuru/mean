@@ -1,16 +1,46 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { PostsComponent } from './posts/posts.component';
+import { PostsService } from './posts.service';
+
+const ROUTES = [
+  {
+    path: '',
+    component: PostsComponent
+  },
+  {
+    path: 'posts',
+    component: PostsComponent
+  }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PostsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    RouterModule.forRoot([  {
+      path: '',
+      component: PostsComponent
+    },
+    {
+      path: 'posts',
+      component: PostsComponent
+    }
+  ]) // Add routes to the app
   ],
-  providers: [],
+  providers: [
+    PostsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
