@@ -1,0 +1,2 @@
+build minha aplicação e roda via nodemon
+npm run build
